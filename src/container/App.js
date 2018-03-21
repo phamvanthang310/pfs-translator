@@ -1,6 +1,7 @@
 import React, {Fragment, PureComponent} from 'react';
 import logo from '../logo.svg';
 import './App.css';
+import swal from 'sweetalert';
 import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 
@@ -23,7 +24,12 @@ class App extends PureComponent {
   };
   exportToFile = () => {
     if (!this.fileName || !this.data) {
-      //TODO: show notification
+      swal({
+        title: 'Error!',
+        text: 'No properties file is selected.',
+        icon: 'error',
+        button: 'Close',
+      });
       return;
     }
 
